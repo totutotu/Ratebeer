@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   validates :password, length: {minimun: 5, maximum: 15}
   validate :password_complexity
 
+  has_secure_password
 
   has_many :ratings, dependent: :destroy
   has_many :beers, through: :ratings
