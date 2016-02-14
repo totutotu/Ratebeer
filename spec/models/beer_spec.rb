@@ -1,6 +1,10 @@
 require 'rails_helper'
 
+
 RSpec.describe Beer, type: :model do
+  let!(:user) { FactoryGirl.create :user }
+
+
   it "is saved" do
     beer = Beer.create name:"Kalja", style:"Halpa"
 

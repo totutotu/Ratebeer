@@ -4,6 +4,8 @@ include Helpers
 
 describe "Beer" do
   let!(:brewery) { FactoryGirl.create :brewery, name:"Koff" }
+  let!(:user) { FactoryGirl.create :user }
+
 
   before :each do
     sign_in(username:"Pekka", password:"Foobar1")
@@ -11,6 +13,8 @@ describe "Beer" do
 
   it "is added to database when name is not empty" do
     visit new_beer_path
+
+    puts page.html
     fill_in('beer_name', with:"Uusikalija")
 
     expect{
