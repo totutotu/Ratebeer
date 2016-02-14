@@ -10,11 +10,18 @@ ruby '2.3.0'
 group :development, :test do
   gem 'sqlite3'
   gem "better_errors"
+  gem 'rspec-rails', '~> 3.0'
 end
 
 group :production do
   gem 'pg'
   gem 'rails_12factor'
+end
+group :test do
+  gem 'capybara'
+  gem 'launchy'
+  gem 'factory_girl_rails'
+  gem 'simplecov', require: false
 end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

@@ -5,6 +5,8 @@ class Beer < ActiveRecord::Base
   include RatingAverage
 
   validates :name, length: {minimum: 1}
+  validates :style, presence: true
+
 
   def to_s
     return "#{name} (#{brewery.name})"

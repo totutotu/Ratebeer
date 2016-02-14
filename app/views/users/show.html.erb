@@ -9,11 +9,15 @@
 </p>
 
 <p>
+  Favorite beer style: <%= @user.favorite_style %>
+</p>
+
+<p>
   <ul>
   <% @user.ratings.each do |rating| %>
     <li><%= rating.beer %> score: <%= rating.score %>
       <% if @user == current_user %>
-        <%= link_to 'Destroy', rating.beer, method: :delete, data: {confirm: 'Are you sure?'}%>
+        <%= link_to 'Destroy', rating, method: :delete, data: {confirm: 'Are you sure?'}%>
       <% end %>
     </li>
     <% end %>
