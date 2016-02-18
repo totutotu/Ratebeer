@@ -16,6 +16,10 @@ Rails.application.routes.draw do
  # get 'ratings/new', to: 'ratings#new'
  # post 'ratings', to: 'ratings#create'
 
+  get 'places', to: 'places#index'
+  post 'places', to: 'places#search'
+
+
   post 'beer_clubs/join/:beer_club_id', to: 'beer_clubs#join_club'
 
   # The priority is based upon order of creation: first created -> highest priority.

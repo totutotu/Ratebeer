@@ -14,7 +14,6 @@ describe "Beer" do
   it "is added to database when name is not empty" do
     visit new_beer_path
 
-    puts page.html
     fill_in('beer_name', with:"Uusikalija")
 
     expect{
