@@ -52,8 +52,9 @@ describe "Rating" do
   it "removes users rating" do
     FactoryGirl.create(:rating, user: user)
     visit user_path(user)
-
-    page.all('a')[8].click
+    expect{
+      page.all('a', text:'Destroy')[0].click
+    }.to change{Rating.count}.by(-1)
 
     expect(page).to have_content("Rating was successfully destroyed.")
     expect(page).not_to have_content("anonymous")

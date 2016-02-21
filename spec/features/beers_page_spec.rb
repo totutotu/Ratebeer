@@ -7,6 +7,7 @@ describe "Beer" do
   let!(:user) { FactoryGirl.create :user }
 
 
+
   before :each do
     sign_in(username:"Pekka", password:"Foobar1")
   end

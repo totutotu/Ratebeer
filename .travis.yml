@@ -13,3 +13,5 @@ deploy:
   app: shielded-ravine-9414
   on:
     repo: totutotu/Ratebeer
+env:
+ - APIKEY=998f10169918be65d5cc2448b9beb4b8

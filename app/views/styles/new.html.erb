@@ -1,0 +1,23 @@
+<h2>Create new rating</h2>
+
+<%= form_for(@style) do |style| %>
+    <% if @style.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@style.errors.count, "error") %> prohibited rating from being saved:</h2>
+
+          <ul>
+            <% @style.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    name: <%=  style.text_field :name %>
+    <br>
+    <br>
+
+    description: <%= style.text_area :description %>
+    <br>
+    <%= style.submit %>
+<% end %>

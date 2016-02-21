@@ -13,7 +13,7 @@
       </div>
   <% end %>
 
-  beer: <%= rating.select :beer_id, options_from_collection_for_select(@beers, :id, :to_s ) %>
+  beer: <%= rating.select :beer_id, options_from_collection_for_select(@beers, :id, :to_s, selected: @rating.beer_id ) %>
   <br>
   score: <%= rating.number_field :score %>
   <br>

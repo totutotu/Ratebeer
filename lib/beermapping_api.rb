@@ -19,6 +19,10 @@ class BeermappingApi
     end
   end
 
+  def self.get_place(city, id)
+    return places_in(city).detect {|i| i.id == id}
+  end
+
   def self.key
     raise "APIKEY env variable not defined" if ENV['APIKEY'].nil?
     ENV['APIKEY']

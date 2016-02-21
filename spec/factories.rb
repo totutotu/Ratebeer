@@ -12,6 +12,15 @@ FactoryGirl.define do
 
   end
 
+  factory :style do
+    name "Lager"
+    description "Hienoa olutta"
+  end
+  factory :style2, class: Style do
+    name "IPA"
+    description "Olutta"
+  end
+
   factory :rating do
     beer
     score 10
@@ -33,19 +42,19 @@ FactoryGirl.define do
   factory :beer do
     name "anonymous"
     brewery
-    style "Lager"
+    style
   end
 
 
   factory :beer2, class: Beer do
     name "anonymous2"
     brewery
-    style "Porter"
+    style
   end
 
   factory :beer3, class: Beer do
     name "anonymousr"
     brewery
-    style "IPA"
+    style2
   end
 end

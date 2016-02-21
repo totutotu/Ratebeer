@@ -1,0 +1,12 @@
+<h2>Styles</h2>
+
+<p>Number of styles <%= @styles.count %></p>
+
+<ul>
+  <% @styles.each do |style|%>
+      <li> <%= style.name %>
+  <% end %>
+</ul>
+<% unless current_user.nil? %>
+    <%= link_to 'New Style', new_style_path %>
+<% end %>
