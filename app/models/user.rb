@@ -49,11 +49,15 @@ class User < ActiveRecord::Base
   private
 
   def rating_of_style(style)
+    return nil if ratings.empty?
+
     ratings_of = ratings.select{ |r| r.beer.style==style }
     ratings_of.map(&:score).inject(&:+) / ratings_of.count.to_f
   end
 
   def rating_of_brewery(brewery)
+    return nil if ratings.empty?
+
     ratings_of = ratings.select{ |r| r.beer.brewery==brewery }
     ratings_of.map(&:score).inject(&:+) / ratings_of.count.to_f
   end
