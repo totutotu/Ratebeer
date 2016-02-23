@@ -32,10 +32,12 @@
   <% @top_users.each do |user| %>
       <tr>
         <td><%= link_to user.username, user %></td>
-        <td><%= user.favorite_beer.name %></td>
-        <td><%= user.favorite_style.name %></td>
-        <td><%= user.favorite_brewery.name %></td>
-        <td><%= user.ratings.count %></td>
+        <% unless user.ratings.nil?%>
+          <td><%= user.favorite_beer.name %></td>
+          <td><%= user.favorite_style.name %></td>
+          <td><%= user.favorite_brewery.name %></td>
+          <td><%= user.ratings.count %></td>
+        <% end %>
         <td></td>
       </tr>
   <% end %>
