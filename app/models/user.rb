@@ -13,6 +13,13 @@ class User < ActiveRecord::Base
   has_many :memberships, dependent: :destroy
   has_many :beer_clubs, through: :memberships
 
+
+
+  def self.top(n)
+    sorted_by_rating_count = User.all.sort_by{ |u| -(u.ratings.count||0) }
+    return sorted_by_rating_count.take(n);
+  end
+
   def password_complexity
     if password.present? and not password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])./)
       errors.add :password, "must include at least one lowercase letter, uppercase letter, and one digit"

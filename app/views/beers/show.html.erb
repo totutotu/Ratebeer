@@ -31,11 +31,13 @@
     <%= form_for(@rating) do |f| %>
         <%= f.hidden_field :beer_id %>
         score: <%= f.number_field :score %>
-        <%= f.submit %>
+        <%= f.submit class:"btn btn-primary" %>
     <% end %>
-
-    <%= link_to 'Edit', edit_beer_path(@beer) %>
+    <div class="btn-group btn-group-sm" role="group" aria-label="...">
 
 <% end %>
 
-<%= link_to 'Back', beers_path %>
+<%= edit_and_destroy_buttons(@beer) %>
+
+<button type="button" class="btn btn-default"><%= link_to 'Back', beers_path %></button>
+</div>

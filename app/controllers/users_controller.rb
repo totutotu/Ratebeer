@@ -67,7 +67,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def toggle_denied
+    if admin
+      user = User.find(params[:id])
+      user.update_attribute :denied, (not user.denied)
 
+      new_status = user.denied? ? "frozen" : "defrost"
+
+      redirect_to :back, notice:"user activity status changed to #{new_status}"
+
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

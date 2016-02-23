@@ -1,13 +1,19 @@
 <p id="notice"><%= notice %></p>
 <h2>
   <%= @brewery.name %>
+  <% if not @brewery.active  %>
+      <span class="label label-info">retired</span>
+  <% end %>
 </h2>
 
-
+<br>
 
 <i>
   Established at <%= @brewery.year %>
 </i>
+
+<br>
+<br>
 
 <p>
   Number of beers <%= @brewery.beers.count %>
@@ -19,10 +25,13 @@
   <% end %>
 </p>
 
-<p>
-  Has <%= pluralize(@brewery.ratings.count, 'rating') %> <% if @brewery.ratings.count > 1 %>, average <%= @brewery.average_rating %> <%end%>
-</p>
+<%= link_to "change activity", toggle_activity_brewery_path(@brewery.id), method: :post, class: "btn btn-primary" %>
 
-<%= link_to 'Edit', edit_brewery_path(@brewery) %> |
-<%= link_to 'Back', breweries_path %> |
-<%= link_to 'List of beers', beers_path %>
+
+<p>
+  Has <%= pluralize(@brewery.ratings.count, 'rating') %> <% if @brewery.ratings.count > 1 %>, average <%= round(@brewery.average_rating) %> <%end%>
+</p>
+<div class="btn-group btn-group-sm" role="group" aria-label="...">
+  <%= edit_and_destroy_buttons(@brewery) %>
+  <button type="button" class="btn btn-default"><%= link_to 'List of beers', beers_path %></button>
+</div>
