@@ -6,6 +6,8 @@ gem 'rails', '4.2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'httparty'
 gem 'bootstrap-sass'
+gem 'jquery-turbolinks'
+gem 'angularjs-rails', '~> 1.4'
 ruby '2.3.0'
 
 # Use sqlite3 as the database for Active Record
